@@ -1,6 +1,6 @@
 
 function getStringToArray(sentence){
-  var splittedSentences = sentence.split(",");
+  var splittedSentences = getSplitted(sentence)
   var resultArr = [];
   for (var i = 0; i < splittedSentences.length; i++) {
     var tempArr = [];
@@ -10,6 +10,22 @@ function getStringToArray(sentence){
     resultArr.push(tempArr)
   }
   return resultArr;
+}
+
+function getSplitted(sentence){
+  var arrResult = []
+  sentence += ","
+  var temp = ""
+  for (var i = 0; i < sentence.length; i++) {
+    if (sentence[i] === ",") {
+      arrResult.push(temp)
+      temp = ""
+    }else{
+      temp += sentence[i]
+    }
+  }
+  console.log(arrResult);
+  return arrResult
 }
 
 console.log(getStringToArray("abcde,efghi,jklmn,opqrs"));
