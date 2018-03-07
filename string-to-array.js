@@ -1,10 +1,19 @@
 function stringToArray (str){
 
-  let strArray = str.split(',');
-  let jumlahRow = strArray.length;
+  let strArray = [];
   let outputConvert = [];
+  let strResult = '';
+  for(let i=0;i<str.length;i++){
 
-  for(let i=0;i<jumlahRow;i++){
+    strResult = strResult + str[i];
+
+    if(str[i] == ',' || i == str.length-1){
+      strArray.push(strResult);
+      strResult = '';
+    }
+  }
+
+  for(let i=0;i<strArray.length;i++){
 
     outputConvert.push([]);
 
